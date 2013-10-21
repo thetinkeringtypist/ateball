@@ -32,6 +32,9 @@ main.o: src/main.c $(HEAD)
 answers.o: src/answers.c $(HEAD)
 	$(CC) -c $(CFLAGS) $(DEBUG) $(INCL_DIR) src/answers.c -o obj/answers.o
 
+run:
+	bin/ateball
+
 clean:
 	rm -rf obj/* $(PROG)
 
