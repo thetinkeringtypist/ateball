@@ -33,10 +33,10 @@ enum type_e{
 
 
 /* Prototypes */
-extern char* answer(int seed);
-extern char* yes(int seed);
-extern char* no(int seed);
-extern char* ask_again_later(int seed);
+extern char* answer(void);
+extern char* yes(void);
+extern char* no(void);
+extern char* ask_again_later(void);
 
 
 

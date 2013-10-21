@@ -35,19 +35,16 @@ const int NUM_ASK_AGAIN_LATER = 5;
  * @return a pointer to a string literal, which is an answer from any of the
  * 	available categories.
  **/
-char* answer(int seed){
-	int n;
+char* answer(void){
+	srand(time(NULL));
 	
-	srand(seed);
-	n = rand();
-
-	switch(n % NUM_TYPES){
+	switch(rand() % NUM_TYPES){
 		case 0:
-			return yes(n);
+			return yes();
 		case 1:
-			return no(n);
+			return no();
 		case 2:
-			return ask_again_later(n);
+			return ask_again_later();
 		default:
 			return "Woops... No category. Sorry.";
 	}
@@ -62,13 +59,10 @@ char* answer(int seed){
  * @return a pointer to a string literal, which is an answer from the "yes"
  * 	category.
  **/
-char* yes(int seed){
-	int n;
+char* yes(void){
+	srand(time(NULL));
 
-	srand(seed);
-	n = rand();
-
-	switch(n % NUM_YES){
+	switch(rand() % NUM_YES){
 		case 0:
 			return "It is certain";
 		case 1:
@@ -103,13 +97,10 @@ char* yes(int seed){
  * @return a pointer to a string literal, which is an answer from the "no"
  * 	category.
  **/
-char* no(int seed){
-	int n;
+char* no(void){
+	srand(time(NULL));
 
-	srand(seed);
-	n = rand();
-
-	switch(n % NUM_NO){
+	switch(rand() % NUM_NO){
 		case 0:
 			return "Don't count on it";
 		case 1:
@@ -134,13 +125,10 @@ char* no(int seed){
  * @return a pointer to a string literal, which is an answer from the "ask
  * 	again later" category.
  **/
-char* ask_again_later(int seed){
-	int n;
-	
-	srand(seed);
-	n = rand();
+char* ask_again_later(void){
+	srand(time(NULL));
 
-	switch(n % NUM_ASK_AGAIN_LATER){
+	switch(rand() % NUM_ASK_AGAIN_LATER){
 		case 0:
 			return "Reply hazy try again";
 		case 1:

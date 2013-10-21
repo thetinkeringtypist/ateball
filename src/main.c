@@ -26,18 +26,10 @@
  * Program entrance point.
  **/
 int main(int argc, char *argv[]){
-	int type;
-	char *ans;
+	srand(time(NULL));		/* The 500th prime number */
 
-	/* Determine the type of answer to give */
-	srand(rand());
-	type = rand();
-
-	/* Using that type, get an appropriate answer */
-	ans = answer(type);
-
-	/* Print the answer */
-	puts(ans);
+	/* Get that answer and print it to the screen */
+	puts(answer());
 
 	exit(EXIT_SUCCESS);
 }
