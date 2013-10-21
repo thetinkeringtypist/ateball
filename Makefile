@@ -33,5 +33,5 @@ answers.o: src/answers.c $(HEAD)
 	$(CC) -c $(CFLAGS) $(DEBUG) $(INCL_DIR) src/answers.c -o obj/answers.o
 
 clean:
-	rm -rf obj/*
+	rm -rf obj/* $(PROG)
 
