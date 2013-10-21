@@ -36,8 +36,6 @@ const int NUM_ASK_AGAIN_LATER = 5;
  * 	available categories.
  **/
 char* answer(void){
-	srand(time(NULL));
-	
 	switch(rand() % NUM_TYPES){
 		case 0:
 			return yes();
@@ -60,8 +58,6 @@ char* answer(void){
  * 	category.
  **/
 char* yes(void){
-	srand(time(NULL));
-
 	switch(rand() % NUM_YES){
 		case 0:
 			return "It is certain";
@@ -98,8 +94,6 @@ char* yes(void){
  * 	category.
  **/
 char* no(void){
-	srand(time(NULL));
-
 	switch(rand() % NUM_NO){
 		case 0:
 			return "Don't count on it";
@@ -126,8 +120,6 @@ char* no(void){
  * 	again later" category.
  **/
 char* ask_again_later(void){
-	srand(time(NULL));
-
 	switch(rand() % NUM_ASK_AGAIN_LATER){
 		case 0:
 			return "Reply hazy try again";
