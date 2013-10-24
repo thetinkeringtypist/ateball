@@ -19,6 +19,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <stdint.h>
 #include "answers.h"
 
 
@@ -26,7 +27,8 @@
  * Program entrance point.
  **/
 int main(int argc, char *argv[]){
-	srand(time(NULL));		/* The 500th prime number */
+	int seed = 0x7FFFFFFF;						/* Largest 31-bit prime */
+	srand(time(NULL) + (((int) &(seed) & seed) ^ seed));
 
 	/* Get that answer and print it to the screen */
 	puts(answer());
