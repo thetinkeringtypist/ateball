@@ -1,7 +1,7 @@
 /**
  * ateball: the command-line Magic Eight (8) Ball!
  * 
- * Copyright (C) 2013 Evan Bezeredi; bezeredi dot dev at gmail dot com
+ * Copyright (C) 2013 Evan Bezeredi <bezeredi.dev@gmail.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
