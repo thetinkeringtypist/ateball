@@ -19,6 +19,7 @@
 
 CC = gcc
 CFLAGS = -O2
+CSTD = 
 DEBUG = -g
 INCL_DIR = -Iinclude
 SRCS = src/main.c src/answers.c
@@ -26,11 +27,13 @@ HEADS = answers.h
 PROG = bin/ateball
 
 all: answers.o main.o
-	$(CC) $(CFLAGS) $(DEBUG) obj/*.o -o $(PROG)
+	$(CC) $(CSTD) $(CFLAGS) $(DEBUG) obj/*.o -o $(PROG)
 main.o: src/main.c $(HEAD)
-	$(CC) -c $(CFLAGS) $(DEBUG) $(INCL_DIR) src/main.c -o obj/main.o
+	$(CC) -c $(CSTD) $(CFLAGS) $(DEBUG) $(INCL_DIR) \
+	src/main.c -o obj/main.o
 answers.o: src/answers.c $(HEAD)
-	$(CC) -c $(CFLAGS) $(DEBUG) $(INCL_DIR) src/answers.c -o obj/answers.o
+	$(CC) -c $(CSTD) $(CFLAGS) $(DEBUG) $(INCL_DIR) \
+	src/answers.c -o obj/answers.o
 
 run:
 	bin/ateball
