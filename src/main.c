@@ -19,19 +19,77 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <unistd.h>
 #include "answers.h"
 
+
+/* Local Functions */
+static void parse_opts(int argc, char *argv[]);
+static void help(void);
+
+/* Local Variables */
+static int ext = 0;
 
 /**
  * Program entrance point.
  **/
 int main(int argc, char *argv[]){
-	int seed = 0x7FFFFFFF;						/* Largest 31-bit prime */
+	int seed;
+
+	if(argc != 1) parse_opts(argc, argv);
+
+	/* Generate a pseudo-random seed */
+	seed = 0x7FFFFFFF;	/* Largest 31-bit prime */
 	srand(time(NULL) + (((int) &(seed) & seed) ^ seed));
 
 	/* Get that answer and print it to the screen */
 	puts(answer());
 
 	exit(EXIT_SUCCESS);
+}
+
+
+/**
+ * Parse the command-line options to the program.
+ *
+ * @param argc - the count of arguments to the program.
+ * @param argv - the option vector to the program.
+ **/
+static void parse_opts(int argc, char *argv[]){
+	int opt;
+
+	while((opt = getopt(argc, argv, "he")) != -1){
+		switch(opt){
+			case 'h':				/* Help */
+				help();
+				exit(EXIT_SUCCESS);
+			case 'e':				/* Extended Answers Enabled */
+				ext = 1;
+				break;
+			default:					/* Invalid Option */
+				fprintf(stderr, "%s: invalid option: %d. Exit.\n", argv[0], opt);
+				exit(EXIT_FAILURE);
+		}
+	}
+
+	return;
+}
+
+
+/**
+ * Print the help information of the program.
+ **/
+static void help(void){
+	printf(
+			"NAME\n"
+			"    ateball - The Command-line Magic 8 Ball!\n\n"
+			"USAGE\n"
+			"    ateball [-h | -e]\n\n"
+			"OPTIONS\n"
+			"    -h   Display this help information.\n"
+			"    -e   Enable extended answers.\n\n"
+	);
+	
+	return;
 }
 
