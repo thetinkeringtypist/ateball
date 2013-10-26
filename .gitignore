@@ -19,3 +19,7 @@
 
 #! Directories to ignore
 bin
+
+#! Files to ignore
+ateball.log
+
